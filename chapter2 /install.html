@@ -12,12 +12,14 @@
       <!-- この#appの内側にテンプレートを書き込んでいく -->
       <p>{{message.value}}</p>
       <p>{{message.value.length}}</p>
+      <p>{{list[2]}}</p>      
+      <p>{{list[num]}}</p>
 
-
-     
-
-
-
+      <input type="text" :value='message.value'>
+      <p>{{count}}回クリックしたよ！</p>
+      <button v-on:click='increment'>カウントを増やす</button>
+      <div v-if='ok'>条件による描画</div>
+      <div v-show='ok'>条件によった描画</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
