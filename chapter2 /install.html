@@ -10,10 +10,17 @@
   <body>
     <div id="app">
       <!-- この#appの内側にテンプレートを書き込んでいく -->
-      <p>{{message.value}}</p>
-      <p>{{message.value.length}}</p>
-      <p>{{list[2]}}</p>      
-      <p>{{list[num]}}</p>
+      <input v-model="name">
+      <button v-on:click="doAdd">モンスターを追加</button>
+      <ul>
+        <li v-for="(item,index) in list"
+            v-bind:key="item.id"
+            v-bind:class= "{strong: item.hp >300}">
+          ID.{{item.id}} {{item.name}} HP.{{item.hp}}
+          <span v-if="item.hp >300 ">つよいよ！</span>
+          <button v-on:click="doRemove(index)">モンスターを削除</button>
+        </li>
+      </ul>
 
       <input type="text" :value='message.value'>
       <p>{{count}}回クリックしたよ！</p>
