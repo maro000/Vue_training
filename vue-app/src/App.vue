@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+   <p>{{message}}</p>
+   <EditFrom />
   </div>
 </template>
 
+// eslint-disable 
+
 <script>
+import EditForm from '@/components/EditForm.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { EditForm },
+  computed :{
+    // ローカルのmessageとストアのmessageを同期
+    message(){return this.$store.getters.message}
+  }
 }
 </script>
 
